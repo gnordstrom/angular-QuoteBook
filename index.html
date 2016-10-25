@@ -1,0 +1,49 @@
+   <!DOCTYPE html>
+   <html ng-app="quoteBook">
+
+   <head>
+   	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" charset="utf-8">
+
+   	<!-- Bootstrap CSS -->
+   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+   	<!-- Custom Styles: Fonts, Any page specific styles, layout, colors -->
+   	<link rel="stylesheet" href="style.css" type="text/css">
+   	<title>Quote Book</title>
+   </head>
+
+   <body ng-controller="mainCtrl">
+
+		<div class="container">
+			<h1>The Quote Collection</h1>
+			<hr>
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Add new quote" ng-model="newQuoteText">
+				<input type="text" class="form-control" placeholder="Author" ng-model="newQuoteAuthor">
+				<button class="btn btn-success btn-sm" ng-click="addQuote()">Add Quote</button>
+				<div class="filter">
+					Filter: <input type="text" ng-model="filterText">
+				</div>
+			</div>
+			<p ng-repeat="quote in quotes track by $index">
+				<span class="text">{{quote.text}}</span>
+				<br>
+				<span class="author">{{quote.author}}</span>
+				<br>
+				<button class="btn btn-danger btn-xs" ng-click="deleteMe(quote.text)">Delete</button>
+			</p>
+		</div>
+
+   	<!-- JQUERY -->
+   	<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+   	<!-- BOOTSTRAP JS -->
+   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.js"></script>
+   	<!-- ANGULAR -->
+   	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+   	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
+   	<script src="js/app.js"></script>
+   	<script src="js/dataService.js"></script>
+   	<script src="js/mainCtrl.js"></script>
+   </body>
+
+   </html>
